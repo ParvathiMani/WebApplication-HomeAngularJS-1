@@ -1,8 +1,12 @@
 ﻿
-<div ng-app="myApp" ng-controller="appController">
-    {{ firstName + " " + lastName }}    
-</div>
+<body ng-app>
+    First Name: <input type="text" ng-model="fname" /><br />
+    Last Name: <input type="text" ng-model="lname" /><br />
+    Comments: <input type="text" ng-model="lname" /><br />
+    Result: {{fname+' '+lname}}
+</body>
 
+<script src="Scripts/angular.min.js"></script>  
 
 @*<div class="jumbotron">
         <h1>ASP.NET</h1>
