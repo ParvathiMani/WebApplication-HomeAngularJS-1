@@ -250,6 +250,8 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\controllers\appController.js" />
+    <Content Include="app\Module\Module.js" />
+    <Content Include="app\Services\Service.js" />
     <Content Include="app\views\Index.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
