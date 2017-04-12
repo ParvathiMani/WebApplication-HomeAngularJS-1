@@ -1,11 +1,8 @@
-﻿
-<body ng-app>
+﻿<body ng-app>
     First Name: <input type="text" ng-model="fname" /><br />
     Last Name: <input type="text" ng-model="lname" /><br />
-    Comments: <input type="text" ng-model="lname" /><br />
-    Result: {{fname+' '+lname}}
+    <p ng-bind="fname"></p>
 </body>
-
 <script src="Scripts/angular.min.js"></script>  
 
 @*<div class="jumbotron">
