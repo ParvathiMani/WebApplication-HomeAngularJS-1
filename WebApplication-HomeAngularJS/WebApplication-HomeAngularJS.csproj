@@ -80,6 +80,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -249,10 +250,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\controllers\appController.js" />
-    <Content Include="app\Module\Module.js" />
-    <Content Include="app\Services\Service.js" />
-    <Content Include="app\views\Index.html" />
+    <Content Include="app\app.module.js" />
+    <Content Include="app\app.routes.js" />
+    <Content Include="app\components\home\homeController.js" />
+    <Content Include="app\components\home\homeService.js" />
+    <Content Include="app\components\home\homeView.html" />
+    <Content Include="app\shared\sidebar\sidebarDirective.js" />
+    <Content Include="app\shared\sidebar\sidebarView.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -313,8 +317,11 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="app\directives\" />
     <Folder Include="App_Data\" />
+    <Folder Include="assets\css\" />
+    <Folder Include="assets\img\" />
+    <Folder Include="assets\js\" />
+    <Folder Include="assets\libs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
