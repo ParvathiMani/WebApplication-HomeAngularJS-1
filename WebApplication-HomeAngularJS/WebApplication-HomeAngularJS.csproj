@@ -325,6 +325,7 @@
     <Folder Include="assets\img\" />
     <Folder Include="assets\js\" />
     <Folder Include="assets\libs\" />
+    <Folder Include="Views\Application\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
