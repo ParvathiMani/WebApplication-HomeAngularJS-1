@@ -9,6 +9,8 @@ namespace WebApplication_HomeAngularJS.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        //public string AddedDate { get; set; }
+        public List<Forum> Forums { get; set; }
+
+        //public Forum Forums { get; set; }
     }
 }

@@ -27,10 +27,10 @@
                     $.each(data, function (key, val) {
                         var categoryURL = apiCategories + '/' + val.ID;
                         rows = rows + '<tr style="border: 1px solid black;"><td>  ' +
-                        '<a style="color: Blue; font-weight:bold; font-size:15px"'
-                           + 'href="' + categoryURL + '">' + val.ID + '</a>' +
-                            '</td><td>' + val.Name +
-                            '</td></tr>';
+                                '<a style="color: Blue; font-weight:bold; font-size:15px"'
+			                    + 'href="' + categoryURL + '">' + val.ID + '</a>' +
+                                '</td><td>' + val.Name +
+                                '</td></tr>';
                     });
                     $('#categories').html(rows);
                 });

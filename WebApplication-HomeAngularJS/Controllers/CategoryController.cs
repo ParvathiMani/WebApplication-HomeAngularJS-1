@@ -1,18 +1,4 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using System.Linq;
-//using System.Net;
-//using System.Net.Http;
-//using System.Web.Http;
-
-//namespace WebApplication_HomeAngularJS.Controllers
-//{
-//    public class CategoryController : ApiController
-//    {
-//    }
-//}
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -47,24 +33,31 @@ namespace WebApplication_HomeAngularJS.Controllers
         }
         public Category GetCategory(int id)
         {
-            Category category = new Category();
-            //XDocument doc = XDocument.Load("D:\\Mudita\\Category.xml");
-            XDocument doc = XDocument.Load("E:\\1-Parvathi\\AngularJS Application DEvelopment\\Application\\Application-AngularJS\\WebApplication-HomeAngularJS\\XML Data\\Category.xml");
+            Category category = new Category();string fileName = "Category.xml";
+            string xmlpath = "E:\\XMLData\\";
+            Path.Combine(xmlpath, fileName);
+            XDocument doc = XDocument.Load(Path.Combine(xmlpath, fileName));
             XElement element = doc.Element("DocumentElement")
                                 .Elements("Category").Elements("ID").
                                 SingleOrDefault(x => x.Value == id.ToString());
             if (element != null)
             {
-                XElement parent = element.Parent;
-                category.ID =
-                        //parent.Element("ID").Value;
-                        Convert.ToInt32(parent.Element("ID"));
+                XElement categoryParent = element.Parent;
+                category.ID = Convert.ToInt32(categoryParent.Element("ID").Value);
                 category.Name =
-                        parent.Element("Name").Value;
-                //category.AddedDate =
-                        //parent.Element("Address").Value;
-                        //Convert.ToDateTime(parent.Element("AddedDate").Value);
-                        //parent.Element("AddedDate").Value;
+                        categoryParent.Element("Name").Value;
+
+                List<Forum> forums = new List<Forum>();
+                foreach (XElement childElement in categoryParent.Descendants("Forum"))
+                {
+                    Forum childforums = new Forum();
+                    childforums.ID = Convert.ToInt32(childElement.Element("ID").Value);
+                    childforums.UserName = childElement.Element("UserName").Value;
+                    childforums.UserComment = childElement.Element("UserComment").Value;
+                    forums.Add(childforums);
+                }
+                category.Forums = forums;
+
                 return category;
             }
             else
