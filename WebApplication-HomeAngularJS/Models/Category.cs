@@ -9,6 +9,6 @@ namespace WebApplication_HomeAngularJS.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public DateTime AddedDate { get; set; }
+        //public string AddedDate { get; set; }
     }
 }

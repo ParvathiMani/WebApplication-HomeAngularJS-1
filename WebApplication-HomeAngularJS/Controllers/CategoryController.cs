@@ -20,6 +20,9 @@ using System.Net.Http;
 using System.Web.Http;
 using WebApplication_HomeAngularJS.Models;
 using System.Xml.Linq;
+using System.Text;
+using System.IO;
+
 namespace WebApplication_HomeAngularJS.Controllers
 {
     public class CategoryController : ApiController
@@ -27,18 +30,17 @@ namespace WebApplication_HomeAngularJS.Controllers
         public List<Category> GetAllCategories()
         {
             List<Category> categories = new List<Category>();
-            //XDocument doc = XDocument.Load("D:\\Mudita\\Category.xml");
-            //XDocument doc = XDocument.Load("E:\\1-Parvathi\\XMLData\\Category.xml");
-            if (System.IO.File.Exists(@"(E:\XMLData\Category.xml") == true)
-                return categories;
-            XDocument doc = XDocument.Load(@"(E:\XMLData\Category.xml");
+
+            string fileName = "Category.xml";
+            string xmlpath = "E:\\XMLData\\";
+            Path.Combine(xmlpath, fileName);
+            XDocument doc = XDocument.Load(Path.Combine(xmlpath, fileName));
             foreach (XElement element in doc.Descendants("DocumentElement")
                 .Descendants("Category"))
             {
                 Category category = new Category();
-                category.ID = Convert.ToInt32(element.Element("ID"));
-                category.Name = element.Element("Name").Value;
-                category.AddedDate = Convert.ToDateTime(element.Element("AddedDate").Value);
+                category.ID = Convert.ToInt32(element.Element("ID").Value);
+                category.Name = element.Element("Name").Value;                
                 categories.Add(category);
             }
             return categories;
@@ -59,9 +61,10 @@ namespace WebApplication_HomeAngularJS.Controllers
                         Convert.ToInt32(parent.Element("ID"));
                 category.Name =
                         parent.Element("Name").Value;
-                category.AddedDate =
+                //category.AddedDate =
                         //parent.Element("Address").Value;
-                        Convert.ToDateTime(parent.Element("AddedDate").Value);
+                        //Convert.ToDateTime(parent.Element("AddedDate").Value);
+                        //parent.Element("AddedDate").Value;
                 return category;
             }
             else
